@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Gadheduuu!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .birthday-text {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .surprise-box {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-no {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .celebration-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .photo-area {
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .photo-area:hover {
+            border-color: #764ba2;
+            background: #f0f0f0;
+        }
+
+        .photo-area input[type="file"] {
+            display: none;
+        }
+
+        .photo-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .photo-preview img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #667eea;
+        }
+
+        .customization-options {
+            margin: 20px 0;
+        }
+
+        .option-group {
+            margin-bottom: 15px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .option-group input, .option-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .option-group input:focus, .option-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .add-memories {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .memory-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .add-memory-btn {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .add-memory-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .final-message textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            resize: vertical;
+            min-height: 100px;
+            margin-top: 10px;
+        }
+
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+            z-index: 999;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .preview-btn {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .preview-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .birthday-text {
+                font-size: 1.8rem;
+            }
+            
+            .emoji {
+                font-size: 3rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" id="confetti"></div>
+    
+    <div class="container">
+        <h1 class="birthday-text">🎉 Happy Birthday Gadheduuu! 🎂</h1>
+        
+        <div class="surprise-box" id="surpriseBox">
+            <div class="emoji">🎁</div>
+            <p class="message">
+                My closest friend! 🌟<br>
+                You mean the world to me! 💕<br>
+                Here's a special surprise just for you...<br>
+                Are you ready to see what's inside? 🎊
+            </p>
+            <div class="buttons">
+                <button class="btn btn-yes" onclick="showCelebration()">Yes! I'm Ready! 🎈</button>
+                <button class="btn btn-no" onclick="noResponse()">No 😅</button>
+            </div>
+        </div>
+
+        <div class="celebration-section hidden" id="celebrationSection">
+            <h2 class="section-title">🎊 Surprise! 🎊</h2>
+            
+            <div class="photo-area" onclick="document.getElementById('photoInput').click()">
+                <p>📸 Click here to add photos!</p>
+                <p style="font-size: 0.9rem; color: #888;">(You can add multiple photos)</p>
+                <input type="file" id="photoInput" multiple accept="image/*" onchange="handlePhotoUpload(event)">
+                <div class="photo-preview" id="photoPreview"></div>
+            </div>
+
+            <div class="customization-options">
+                <div class="option-group">
+                    <label>🎂 Birthday Cake Message:</label>
+                    <input type="text" id="cakeMessage" placeholder="e.g., Wishing you the best day ever!">
+                </div>
+                
+                <div class="option-group">
+                    <label>🌟 Nicknames to call you:</label>
+                    <input type="text" id="nicknames" placeholder="e.g., Gadheduuu, Buddy, Bestie">
+                </div>
+                
+                <div class="option-group">
+                    <label>💝 Special message just for you:</label>
+                    <textarea id="specialMessage" rows="3" placeholder="Write something heartfelt here..."></textarea>
+                </div>
+            </div>
+
+            <div class="add-memories">
+                <h3 style="margin-bottom: 15px;">💭 Add Special Memories</h3>
+                <div id="memoriesContainer"></div>
+                <button class="add-memory-btn" onclick="addMemory()">+ Add a Memory</button>
+            </div>
+
+            <div class="final-message">
+                <h3>💕 Final Birthday Wishes</h3>
+                <textarea id="finalWishes" placeholder="Write your final birthday message here..."></textarea>
+            </div>
+
+            <button class="preview-btn" onclick="generateFinalPage()">✨ Generate Final Birthday Page ✨</button>
+        </div>
+    </div>
+
+    <script>
+        // Confetti effect
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#5f27cd'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    left: ${Math.random() * 100}%;
+                    top: -10px;
+                    border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+                    animation: fall ${2 + Math.random() * 3}s linear forwards;
+                    transform: rotate(${Math.random() * 360}deg);
+                `;
+                confettiContainer.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Floating hearts
+        function createHearts() {
+            const emojis = ['❤️', '💕', '💖', '💗', '💓', '💘'];
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '100%';
+                    heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 200);
+            }
+        }
+
+        function showCelebration() {
+            document.getElementById('surpriseBox').classList.add('hidden');
+            document.getElementById('celebrationSection').classList.remove('hidden');
+            createConfetti();
+            createHearts();
+        }
+
+        function noResponse() {
+            alert("Come on! Don't be shy! Click Yes! 😜");
+        }
+
+        function handlePhotoUpload(event) {
+            const files = event.target.files;
+            const preview = document.getElementById('photoPreview');
+            
+            for (let file of files) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addMemory() {
+            const container = document.getElementById('memoriesContainer');
+            const memoryDiv = document.createElement('div');
+            memoryDiv.className = 'memory-item';
+            memoryDiv.innerHTML = `
+                <input type="text" placeholder="When did this happen?" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                <textarea placeholder="What memory do you want to remember?" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px; resize: vertical;"></textarea>
+            `;
+            container.appendChild(memoryDiv);
+        }
+
+        function generateFinalPage() {
+            const cakeMessage = document.getElementById('cakeMessage').value || 'Happy Birthday!';
+            const nicknames = document.getElementById('nicknames').value || 'Best Friend';
+            const specialMessage = document.getElementById('specialMessage').value || '';
+            const finalWishes = document.getElementById('finalWishes').value || '';
+            
+            // Get memories
+            const memories = [];
+            document.querySelectorAll('.memory-item').forEach(item => {
+                const inputs = item.querySelectorAll('input, textarea');
+                if (inputs[0].value || inputs[1].value) {
+                    memories.push({
+                        when: inputs[0].value,
+                        what: inputs[1].value
+                    });
+                }
+            });
+
+            // Get photos
+            const photos = [];
+            document.querySelectorAll('.photo-preview img').forEach(img => {
+                photos.push(img.src);
+            });
+
+            // Create final HTML
+            const finalHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday ${nicknames}!</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            padding: 20px;
+        }
+        .container { max-width: 600px; margin: 0 auto; text-align: center; }
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 { color: #667eea; font-size: 2rem; margin-bottom: 10px; }
+        .cake { font-size: 5rem; animation: bounce 1s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .message { font-size: 1.2rem; color: #666; line-height: 1.8; margin: 20px 0;
